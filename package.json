@@ -1,0 +1,46 @@
+{
+  "name": "mixable-object",
+  "version": "0.0.1",
+  "description": "(Node.js) The way we do code reuse: simply copy things from an object to another.",
+  "author": {
+    "name": "Wiredcraft",
+    "email": "info@wiredcraft.com",
+    "url": "http://wiredcraft.com"
+  },
+  "contributors": [
+    "Makara Wang"
+  ],
+  "keywords": [
+    "mixable",
+    "mixin",
+    "object",
+    "prototype"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Wiredcraft/mixable-object.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Wiredcraft/mixable-object/issues"
+  },
+  "homepage": "https://github.com/Wiredcraft/mixable-object",
+  "dependencies": {},
+  "devDependencies": {
+    "benchmark": "latest",
+    "debug": "latest",
+    "es5-ext": "latest",
+    "es6-shim": "latest",
+    "gulp": "latest",
+    "gulp-coffee": "latest",
+    "gulp-coffeelint": "latest",
+    "gulp-coverage": "latest",
+    "gulp-jshint": "latest",
+    "gulp-mocha": "latest",
+    "gulp-util": "latest",
+    "jshint-stylish": "latest",
+    "request": "latest",
+    "should": "latest"
+  },
+  "scripts": {}
+}
