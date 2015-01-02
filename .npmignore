@@ -7,9 +7,9 @@
 node_modules
 
 /backup
+/benchmark
 /src
 /test
-/benchmark
 
 /*.js
 !/index.js

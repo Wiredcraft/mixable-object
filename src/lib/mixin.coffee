@@ -1,23 +1,27 @@
 # debug = require('debug')('carcass:mixin')
 
+util = require('util')
+
 descriptor = Object.getOwnPropertyDescriptor
 # properties = Object.getOwnPropertyNames
 defineProp = Object.defineProperty
 
 ###*
- * The common mixin, simply merges properties, by redefining the same properties
+ * The common mixin, simply copies properties, by redefining the same properties
  *   from the source.
  *
- * Note that only enumerable properties are merged.
- *
  * @param {Object} source
+ * @param {Mixed} ...keys if given only the attributes with the keys are copied
  *
  * @return {this}
 ###
-module.exports = mixin = (source) ->
-    # Merge.
-    # TODO: optionally prevent overriding?
-    # TODO: optionally merge non-enumerable properties?
-    for key in Object.keys(source)
-        defineProp(@, key, descriptor(source, key))
+module.exports = mixin = (source, keys...) ->
+    if keys.length > 0
+        for key in keys
+            if not source.hasOwnProperty(key)
+                throw new Error(util.format('Property not found: %s', key))
+    else
+        keys = Object.keys(source)
+    # Copy.
+    defineProp(@, key, descriptor(source, key)) for key in keys
     return @

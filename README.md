@@ -4,7 +4,7 @@
 
 Originally part of [Carcass](https://github.com/Wiredcraft/carcass).
 
-> JavaScript is classified as a prototype-based scripting language ...
+> JavaScript is classified as a prototype-based scripting language...
 
 It just works, without the magical inheritance blah blah.
 
@@ -57,8 +57,10 @@ The `mixable()` function simply attaches a `mixin()` function to a given object 
 
 The `mixin()` function simply copies attributes from a source object to `this`.
 
-We've seen many similar implementations like `Object.assign()` from ES6 or another `mixin()` from [es5-ext](https://github.com/medikoo/es5-ext), while our `mixin()` has some notable features:
+__Selective mixin__: a 2nd or more arguments can be used, i.e. `mixin(source, 'keyOne', 'keyTwo', ...)` and if so, only the attributes with the keys are copied.
 
-- We are using `Object.keys()`, meaning that only enumerable attributes are copied.
-- Things are copied with `Object.defineProperty()`, so for example we will not copy the value that a getter returns but the getter itself.
-- The argument of `mixin()` is the source and the target is `this`, as opposed to many other implementations where they usually have 2 arguments - the target and the source. This allows it to be chained like `obj.mixin(lorem).mixin(ipsum)`. However you can still do `mixin.call(target, source)` if you want to.
+We've seen many similar implementations like `Object.assign()` from ES6 or another `mixin()` from [es5-ext](https://github.com/medikoo/es5-ext), while our `mixin()` has some notable features / differences:
+
+1. Only enumerable attributes are copied by default unless you do selective mixin (see above).
+2. Things are copied with `Object.defineProperty()`, so for example we will not copy the value that a getter returns but the getter itself.
+3. The argument of `mixin()` is the source and the target is `this`. This is different with many other libraries where they usually have 2 arguments - the target and the source. This allows it to be chained like `obj.mixin(lorem).mixin(ipsum)`. However you can still do `mixin.call(target, source)` if you want to.

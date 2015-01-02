@@ -1,5 +1,6 @@
 mixin = require('./mixin')
 
+# Copied from bluebird.
 isPrimitive = (value) ->
     return (not value?) or (value is true) or (value is false) or
         (typeof value is 'string') or (typeof value is 'number')
