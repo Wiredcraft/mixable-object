@@ -25,6 +25,7 @@ __A typical gotcha__: `proto.something = 'something';` - it usually doesn't make
 Then there are many ways to reuse it. One of them is simply copy it to an object.
 
 ```js
+var mixable = require('mixable-object');
 // A random object.
 var obj = {};
 // Make it mixable.
@@ -38,6 +39,7 @@ obj.mixin(proto);
 However most of the time we want to reuse it with another prototype.
 
 ```js
+var mixable = require('mixable-object');
 // A random class.
 function Klass() {}
 // It also makes the prototype mixable.
@@ -64,3 +66,29 @@ We've seen many similar implementations like `Object.assign()` from ES6 or anoth
 1. Only enumerable attributes are copied by default unless you do selective mixin (see above).
 2. Things are copied with `Object.defineProperty()`, so for example we will not copy the value that a getter returns but the getter itself.
 3. The argument of `mixin()` is the source and the target is `this`. This is different with many other libraries where they usually have 2 arguments - the target and the source. This allows it to be chained like `obj.mixin(lorem).mixin(ipsum)`. However you can still do `mixin.call(target, source)` if you want to.
+
+## Merge
+
+`merge()` is a variant of `mixin()`, can be used like:
+
+```js
+var mixable = require('mixable-object');
+var obj = {
+    merge: mixable.merge
+};
+obj.merge(something);
+```
+
+Or:
+
+```js
+mixable.merge.call(obj, something);
+```
+
+`merge()` does the same thing with `mixin()` except that if:
+
+1. both the source and the target has an attribute with the same name,
+2. and the descriptors of both the attributes are values (not getters),
+3. and both values are objects,
+
+the `merge()` will copy the child attributes from the source, recursively, results in a deep merge.

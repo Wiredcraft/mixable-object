@@ -3,7 +3,6 @@
 util = require('util')
 
 descriptor = Object.getOwnPropertyDescriptor
-# properties = Object.getOwnPropertyNames
 defineProp = Object.defineProperty
 
 ###*

@@ -4,6 +4,7 @@ require('es6-shim');
 var Benchmark = require('benchmark');
 
 var mixin = require('../lib/mixin');
+var merge = require('../lib/merge');
 
 var mixinA = require('./baselines/mixin-a');
 var mixinB = require('./baselines/mixin-b');
@@ -32,6 +33,13 @@ describe('Mixin:', function() {
                 mixin: mixin
             };
             obj.mixin(lorem).mixin(ipsum);
+        });
+        suite.add('using merge.', function() {
+            var obj = {
+                something: 'Lorem ipsum dolor sit amet',
+                merge: merge
+            };
+            obj.merge(lorem).merge(ipsum);
         });
         suite.add('using Object.assign() from es6-shim.', function() {
             var obj = {
