@@ -1,4 +1,10 @@
 
+0.0.3 / 2015-01-03
+==================
+
+  * Added a variant to mixin(): merge().
+  * Added ability to do selective mixin.
+
 0.0.2 / 2014-12-29
 ==================
 
