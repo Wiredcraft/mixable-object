@@ -27,20 +27,15 @@
   "homepage": "https://github.com/Wiredcraft/mixable-object",
   "dependencies": {},
   "devDependencies": {
-    "benchmark": "latest",
-    "debug": "latest",
-    "es5-ext": "latest",
-    "es6-shim": "latest",
-    "gulp": "latest",
-    "gulp-coffee": "latest",
-    "gulp-coffeelint": "latest",
-    "gulp-coverage": "latest",
-    "gulp-jshint": "latest",
-    "gulp-mocha": "latest",
-    "gulp-util": "latest",
-    "jshint-stylish": "latest",
-    "request": "latest",
-    "should": "latest"
+    "benchmark": "^2.0.0",
+    "coveralls": "^2.11.0",
+    "debug": "^2.2.0",
+    "es5-ext": "^0.10.0",
+    "es6-shim": "^0.34.0",
+    "istanbul": "^0.4.0",
+    "jscs": "^2.8.0",
+    "mocha": "^2.3.0",
+    "should": "^8.2.0"
   },
   "scripts": {}
 }
