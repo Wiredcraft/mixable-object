@@ -15,6 +15,6 @@ var anotherMixin = require('es5-ext/object/mixin');
  * @return {this}
  */
 module.exports = function mixin(source) {
-    anotherMixin(this, source);
-    return this;
+  anotherMixin(this, source);
+  return this;
 };

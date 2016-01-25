@@ -16,4 +16,7 @@ test-cov: lint
 	@$(ENV) $(ISTANBUL) cover $(MOCHA) -- $(MOCHA_OPTS) $(TESTS)
 test-coveralls: test-cov
 	@cat ./coverage/lcov.info | $(COVERALLS) --verbose
-.PHONY: lint test test-cov test-coveralls
+benchmark: lint
+	@echo "Benchmarking..."
+	@$(ENV) $(MOCHA) $(MOCHA_OPTS) --timeout 120000 benchmark/*.js
+.PHONY: lint test test-cov test-coveralls benchmark

@@ -13,15 +13,15 @@ var defineProp = Object.defineProperty;
  * @return {this}
  */
 module.exports = function mixin(source) {
-    var self = this;
-    // try {
-    Object.keys(source).forEach(function(key) {
-        // if (source.propertyIsEnumerable(key)) {
-        defineProp(self, key, descriptor(source, key));
-        // }
-    });
-    // } catch (err) {
-    //     debug(err);
+  var self = this;
+  // try {
+  Object.keys(source).forEach(function(key) {
+    // if (source.propertyIsEnumerable(key)) {
+    defineProp(self, key, descriptor(source, key));
     // }
-    return this;
+  });
+  // } catch (err) {
+  //   debug(err);
+  // }
+  return this;
 };
