@@ -1,4 +1,15 @@
 
+0.1.0 / 2016-01-26
+==================
+
+  * Setting up Travis and Coveralls.
+  * Satisfy JSCS 2.9.
+  * API change: the mixin() function added by mixable() is now un-enumerable.
+  * Added back benchmark.
+  * Dropped coffee.
+  * Replaced jshint with jscs.
+  * Dropped gulp.
+
 0.0.3 / 2015-01-03
 ==================
 

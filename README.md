@@ -94,3 +94,15 @@ mixable.merge.call(obj, something);
 3. and both values are objects,
 
 the `merge()` will copy the child attributes from the source, recursively, results in a deep merge.
+
+## Git summary
+
+```
+ project  : mixable-object
+ repo age : 1 year, 1 month
+ active   : 5 days
+ commits  : 18
+ files    : 21
+ authors  :
+    18  Makara Wang  100.0%
+```
