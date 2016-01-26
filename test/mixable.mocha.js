@@ -21,12 +21,14 @@ describe('Mixable:', function() {
       lorem = mixable();
       lorem.should.be.type('object');
       lorem.should.have.property('mixin').with.type('function');
+      Object.keys(lorem).should.deepEqual([]);
     });
 
     it('can mixin', function() {
       lorem.should.not.have.property('ipsum');
       lorem.mixin(ipsum);
       lorem.should.have.property('ipsum', true);
+      Object.keys(lorem).should.deepEqual(['ipsum']);
     });
 
   });
@@ -41,12 +43,14 @@ describe('Mixable:', function() {
       lorem.should.be.type('object');
       lorem.should.have.property('lorem', true);
       lorem.should.have.property('mixin').with.type('function');
+      Object.keys(lorem).should.deepEqual(['lorem']);
     });
 
     it('can mixin', function() {
       lorem.should.not.have.property('ipsum');
       lorem.mixin(ipsum);
       lorem.should.have.property('ipsum', true);
+      Object.keys(lorem).should.deepEqual(['lorem', 'ipsum']);
     });
 
   });
@@ -62,12 +66,14 @@ describe('Mixable:', function() {
       lorem.should.have.property(0, 'lorem');
       lorem.should.have.property('length', 1);
       lorem.should.have.property('mixin').with.type('function');
+      Object.keys(lorem).should.deepEqual(['0']);
     });
 
     it('can mixin', function() {
       lorem.should.not.have.property('ipsum');
       lorem.mixin(ipsum);
       lorem.should.have.property('ipsum', true);
+      Object.keys(lorem).should.deepEqual(['0', 'ipsum']);
     });
 
   });
@@ -82,22 +88,26 @@ describe('Mixable:', function() {
       lorem.should.be.type('function');
       lorem().should.equal(true);
       lorem.should.have.property('mixin').with.type('function');
+      Object.keys(lorem).should.deepEqual([]);
     });
 
     it('can mixin', function() {
       lorem.should.not.have.property('ipsum');
       lorem.mixin(ipsum);
       lorem.should.have.property('ipsum', true);
+      Object.keys(lorem).should.deepEqual(['ipsum']);
     });
 
     it('should make the prototype mixable', function() {
       lorem.prototype.should.have.property('mixin').with.type('function');
+      Object.keys(lorem.prototype).should.deepEqual([]);
     });
 
     it('can mixin to the prototype', function() {
       lorem.prototype.should.not.have.property('ipsum');
       lorem.prototype.mixin(ipsum);
       lorem.prototype.should.have.property('ipsum', true);
+      Object.keys(lorem.prototype).should.deepEqual(['ipsum']);
     });
 
   });
