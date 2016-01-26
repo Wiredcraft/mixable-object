@@ -14,7 +14,7 @@ var defineProp = Object.defineProperty;
  */
 module.exports = function mixin(source) {
   // try {
-  return Object.keys(source).reduce(function(self, key) {
+  return Object.keys(source).reduce(function (self, key) {
     // if (source.propertyIsEnumerable(key)) {
     defineProp(self, key, descriptor(source, key));
     // }

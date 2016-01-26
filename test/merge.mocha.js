@@ -3,19 +3,19 @@ var debug = require('debug')('carcass:test');
 var should = require('should');
 var merge = require('../lib/merge');
 
-describe('Merge:', function() {
+describe('Merge:', function () {
 
-  it('should be a function', function() {
+  it('should be a function', function () {
     merge.should.be.type('function');
   });
 
-  describe('Use with an object:', function() {
+  describe('Use with an object:', function () {
 
     var obj = {
       merge: merge
     };
 
-    it('can merge from an object', function() {
+    it('can merge from an object', function () {
       obj.lorem = true;
       delete obj.ipsum;
       obj.merge({
@@ -25,7 +25,7 @@ describe('Merge:', function() {
       obj.should.have.property('ipsum', true);
     });
 
-    it('can merge from an object and override', function() {
+    it('can merge from an object and override', function () {
       obj.lorem = true;
       delete obj.ipsum;
       obj.merge({
@@ -36,8 +36,8 @@ describe('Merge:', function() {
       obj.should.have.property('ipsum', true);
     });
 
-    it('can merge from a function', function() {
-      var func = function() {};
+    it('can merge from a function', function () {
+      var func = function () {};
       func.ipsum = true;
       obj.lorem = true;
       delete obj.ipsum;
@@ -58,7 +58,7 @@ describe('Merge:', function() {
     //   }).should.throwError();
     // });
 
-    it('can merge enumerable', function() {
+    it('can merge enumerable', function () {
       var other = Object.defineProperties({}, {
         ipsum: {
           value: true,
@@ -72,7 +72,7 @@ describe('Merge:', function() {
       obj.should.have.property('ipsum', true);
     });
 
-    it('cannot merge non-enumerable', function() {
+    it('cannot merge non-enumerable', function () {
       var other = Object.defineProperties({}, {
         ipsum: {
           value: true,
@@ -86,14 +86,14 @@ describe('Merge:', function() {
       obj.should.not.have.property('ipsum');
     });
 
-    it('can merge getters / setters', function() {
+    it('can merge getters / setters', function () {
       var ipsum = null;
       var other = Object.defineProperties({}, {
         ipsum: {
-          get: function() {
+          get: function () {
             return ipsum;
           },
-          set: function(val) {
+          set: function (val) {
             ipsum = val;
           },
           enumerable: true,
@@ -115,13 +115,13 @@ describe('Merge:', function() {
 
   });
 
-  describe('Selective merge:', function() {
+  describe('Selective merge:', function () {
 
     var obj = {
       merge: merge
     };
 
-    it('can merge with a key', function() {
+    it('can merge with a key', function () {
       obj.lorem = true;
       delete obj.ipsum;
       obj.merge({
@@ -132,7 +132,7 @@ describe('Merge:', function() {
       obj.should.have.property('ipsum', true);
     });
 
-    it('can merge with 2 keys', function() {
+    it('can merge with 2 keys', function () {
       obj.lorem = true;
       delete obj.ipsum;
       obj.merge({
@@ -143,13 +143,13 @@ describe('Merge:', function() {
       obj.should.have.property('ipsum', true);
     });
 
-    it('cannot merge with a wrong key', function() {
-      (function() {
+    it('cannot merge with a wrong key', function () {
+      (function () {
         obj.merge({}, 'ipsum');
       }).should.throwError('Property not found: ipsum');
     });
 
-    it('can merge a non-enumerable property', function() {
+    it('can merge a non-enumerable property', function () {
       obj.lorem = true;
       delete obj.ipsum;
       obj.merge(Object.defineProperties({}, {
@@ -165,13 +165,13 @@ describe('Merge:', function() {
 
   });
 
-  describe('Deep merge:', function() {
+  describe('Deep merge:', function () {
 
     var obj = {
       merge: merge
     };
 
-    it('can merge from an object', function() {
+    it('can merge from an object', function () {
       obj.lorem = {
         ipsum: true
       };
@@ -185,7 +185,7 @@ describe('Merge:', function() {
       obj.lorem.should.have.property('dolor', true);
     });
 
-    it('can merge from an object and override', function() {
+    it('can merge from an object and override', function () {
       obj.lorem = {
         ipsum: true,
         dolor: false
@@ -200,7 +200,7 @@ describe('Merge:', function() {
       obj.lorem.should.have.property('dolor', true);
     });
 
-    it('can merge enumerable', function() {
+    it('can merge enumerable', function () {
       var other = {
         lorem: {}
       };
@@ -218,7 +218,7 @@ describe('Merge:', function() {
       obj.lorem.should.have.property('dolor', true);
     });
 
-    it('cannot merge non-enumerable', function() {
+    it('cannot merge non-enumerable', function () {
       var other = {
         lorem: {}
       };
@@ -236,16 +236,16 @@ describe('Merge:', function() {
       obj.lorem.should.not.have.property('dolor');
     });
 
-    it('can merge getters / setters', function() {
+    it('can merge getters / setters', function () {
       var dolor = null;
       var other = {
         lorem: {}
       };
       Object.defineProperty(other.lorem, 'dolor', {
-        get: function() {
+        get: function () {
           return dolor;
         },
-        set: function(val) {
+        set: function (val) {
           dolor = val;
         },
         enumerable: true,
@@ -265,13 +265,13 @@ describe('Merge:', function() {
       obj.lorem.should.have.property('dolor', false);
     });
 
-    it('can merge getters / setters and override', function() {
+    it('can merge getters / setters and override', function () {
       var lorem = {
         dolor: true
       };
       var other = {};
       Object.defineProperty(other, 'lorem', {
-        get: function() {
+        get: function () {
           return lorem;
         },
         enumerable: true,

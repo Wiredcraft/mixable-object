@@ -3,19 +3,19 @@ var debug = require('debug')('carcass:test');
 var should = require('should');
 var mixin = require('../lib/mixin');
 
-describe('Mixin:', function() {
+describe('Mixin:', function () {
 
-  it('should be a function', function() {
+  it('should be a function', function () {
     mixin.should.be.type('function');
   });
 
-  describe('Use with an object:', function() {
+  describe('Use with an object:', function () {
 
     var obj = {
       mixin: mixin
     };
 
-    it('can mixin from an object', function() {
+    it('can mixin from an object', function () {
       obj.lorem = true;
       delete obj.ipsum;
       obj.mixin({
@@ -25,7 +25,7 @@ describe('Mixin:', function() {
       obj.should.have.property('ipsum', true);
     });
 
-    it('can mixin from an object and override', function() {
+    it('can mixin from an object and override', function () {
       obj.lorem = true;
       delete obj.ipsum;
       obj.mixin({
@@ -36,8 +36,8 @@ describe('Mixin:', function() {
       obj.should.have.property('ipsum', true);
     });
 
-    it('can mixin from a function', function() {
-      var func = function() {};
+    it('can mixin from a function', function () {
+      var func = function () {};
       func.ipsum = true;
       obj.lorem = true;
       delete obj.ipsum;
@@ -58,7 +58,7 @@ describe('Mixin:', function() {
     //   }).should.throwError();
     // });
 
-    it('can mixin enumerable', function() {
+    it('can mixin enumerable', function () {
       var other = Object.defineProperties({}, {
         ipsum: {
           value: true,
@@ -72,7 +72,7 @@ describe('Mixin:', function() {
       obj.should.have.property('ipsum', true);
     });
 
-    it('cannot mixin non-enumerable', function() {
+    it('cannot mixin non-enumerable', function () {
       var other = Object.defineProperties({}, {
         ipsum: {
           value: true,
@@ -86,14 +86,14 @@ describe('Mixin:', function() {
       obj.should.not.have.property('ipsum');
     });
 
-    it('can mixin getters / setters', function() {
+    it('can mixin getters / setters', function () {
       var ipsum = null;
       var other = Object.defineProperties({}, {
         ipsum: {
-          get: function() {
+          get: function () {
             return ipsum;
           },
-          set: function(val) {
+          set: function (val) {
             ipsum = val;
           },
           enumerable: true,
@@ -115,13 +115,13 @@ describe('Mixin:', function() {
 
   });
 
-  describe('Selective mixin:', function() {
+  describe('Selective mixin:', function () {
 
     var obj = {
       mixin: mixin
     };
 
-    it('can mixin with a key', function() {
+    it('can mixin with a key', function () {
       obj.lorem = true;
       delete obj.ipsum;
       obj.mixin({
@@ -132,7 +132,7 @@ describe('Mixin:', function() {
       obj.should.have.property('ipsum', true);
     });
 
-    it('can mixin with 2 keys', function() {
+    it('can mixin with 2 keys', function () {
       obj.lorem = true;
       delete obj.ipsum;
       obj.mixin({
@@ -143,13 +143,13 @@ describe('Mixin:', function() {
       obj.should.have.property('ipsum', true);
     });
 
-    it('cannot mixin with a wrong key', function() {
-      (function() {
+    it('cannot mixin with a wrong key', function () {
+      (function () {
         obj.mixin({}, 'ipsum');
       }).should.throwError('Property not found: ipsum');
     });
 
-    it('can mixin a non-enumerable property', function() {
+    it('can mixin a non-enumerable property', function () {
       obj.lorem = true;
       delete obj.ipsum;
       obj.mixin(Object.defineProperties({}, {

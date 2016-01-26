@@ -3,13 +3,13 @@ var debug = require('debug')('carcass:test');
 var should = require('should');
 var mixable = require('../');
 
-describe('Example:', function() {
+describe('Example:', function () {
 
-  it('should work', function() {
+  it('should work', function () {
 
     // A well prepared prototype.
     var proto = {
-      doSomething: function() {
+      doSomething: function () {
         return 'done something';
       }
     };

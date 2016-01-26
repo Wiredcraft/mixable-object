@@ -3,9 +3,9 @@ var debug = require('debug')('carcass:test');
 var should = require('should');
 var mixable = require('../lib/mixable');
 
-describe('Mixable:', function() {
+describe('Mixable:', function () {
 
-  it('should be a function', function() {
+  it('should be a function', function () {
     mixable.should.be.type('function');
   });
 
@@ -15,16 +15,16 @@ describe('Mixable:', function() {
     ipsum: true
   };
 
-  describe('Use with nothing:', function() {
+  describe('Use with nothing:', function () {
 
-    it('should return a mixable object', function() {
+    it('should return a mixable object', function () {
       lorem = mixable();
       lorem.should.be.type('object');
       lorem.should.have.property('mixin').with.type('function');
       Object.keys(lorem).should.deepEqual([]);
     });
 
-    it('can mixin', function() {
+    it('can mixin', function () {
       lorem.should.not.have.property('ipsum');
       lorem.mixin(ipsum);
       lorem.should.have.property('ipsum', true);
@@ -33,9 +33,9 @@ describe('Mixable:', function() {
 
   });
 
-  describe('Use with an object:', function() {
+  describe('Use with an object:', function () {
 
-    it('should make it mixable', function() {
+    it('should make it mixable', function () {
       lorem = {
         lorem: true
       };
@@ -46,7 +46,7 @@ describe('Mixable:', function() {
       Object.keys(lorem).should.deepEqual(['lorem']);
     });
 
-    it('can mixin', function() {
+    it('can mixin', function () {
       lorem.should.not.have.property('ipsum');
       lorem.mixin(ipsum);
       lorem.should.have.property('ipsum', true);
@@ -55,9 +55,9 @@ describe('Mixable:', function() {
 
   });
 
-  describe('Use with an array:', function() {
+  describe('Use with an array:', function () {
 
-    it('should make it mixable', function() {
+    it('should make it mixable', function () {
       lorem = [
         'lorem'
       ];
@@ -69,7 +69,7 @@ describe('Mixable:', function() {
       Object.keys(lorem).should.deepEqual(['0']);
     });
 
-    it('can mixin', function() {
+    it('can mixin', function () {
       lorem.should.not.have.property('ipsum');
       lorem.mixin(ipsum);
       lorem.should.have.property('ipsum', true);
@@ -78,10 +78,10 @@ describe('Mixable:', function() {
 
   });
 
-  describe('Use with a function:', function() {
+  describe('Use with a function:', function () {
 
-    it('should make it mixable', function() {
-      lorem = function() {
+    it('should make it mixable', function () {
+      lorem = function () {
         return true;
       };
       mixable(lorem).should.equal(lorem);
@@ -91,19 +91,19 @@ describe('Mixable:', function() {
       Object.keys(lorem).should.deepEqual([]);
     });
 
-    it('can mixin', function() {
+    it('can mixin', function () {
       lorem.should.not.have.property('ipsum');
       lorem.mixin(ipsum);
       lorem.should.have.property('ipsum', true);
       Object.keys(lorem).should.deepEqual(['ipsum']);
     });
 
-    it('should make the prototype mixable', function() {
+    it('should make the prototype mixable', function () {
       lorem.prototype.should.have.property('mixin').with.type('function');
       Object.keys(lorem.prototype).should.deepEqual([]);
     });
 
-    it('can mixin to the prototype', function() {
+    it('can mixin to the prototype', function () {
       lorem.prototype.should.not.have.property('ipsum');
       lorem.prototype.mixin(ipsum);
       lorem.prototype.should.have.property('ipsum', true);
@@ -112,9 +112,9 @@ describe('Mixable:', function() {
 
   });
 
-  describe('Use with something wrong:', function() {
+  describe('Use with something wrong:', function () {
 
-    it('should return itself', function() {
+    it('should return itself', function () {
       lorem = 'lorem';
       mixable(lorem).should.equal(lorem);
       lorem.should.be.type('string');
@@ -122,7 +122,7 @@ describe('Mixable:', function() {
       lorem.should.not.have.property('mixin');
     });
 
-    it('should return itself', function() {
+    it('should return itself', function () {
       lorem = 1;
       mixable(lorem).should.equal(lorem);
       lorem.should.be.type('number');
@@ -130,7 +130,7 @@ describe('Mixable:', function() {
       lorem.should.not.have.property('mixin');
     });
 
-    it('should return itself', function() {
+    it('should return itself', function () {
       lorem = true;
       mixable(lorem).should.equal(lorem);
       lorem.should.be.type('boolean');
