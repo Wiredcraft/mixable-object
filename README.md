@@ -1,5 +1,7 @@
 # Mixable Object
 
+[![Build Status](https://travis-ci.org/Wiredcraft/mixable-object.svg?branch=master)](https://travis-ci.org/Wiredcraft/mixable-object) [![Coverage Status](https://coveralls.io/repos/github/Wiredcraft/mixable-object/badge.svg?branch=master)](https://coveralls.io/github/Wiredcraft/mixable-object?branch=master)
+
 (Node.js) The way we do code reuse: simply copy things from an object to another.
 
 Originally part of [Carcass](https://github.com/Wiredcraft/carcass).
