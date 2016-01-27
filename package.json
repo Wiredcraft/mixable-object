@@ -1,6 +1,6 @@
 {
   "name": "mixable-object",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "(Node.js) The way we do code reuse: simply copy things from an object to another.",
   "author": {
     "name": "Wiredcraft",

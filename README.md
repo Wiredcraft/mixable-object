@@ -100,9 +100,9 @@ the `merge()` will copy the child attributes from the source, recursively, resul
 ```
  project  : mixable-object
  repo age : 1 year, 1 month
- active   : 5 days
- commits  : 18
+ active   : 6 days
+ commits  : 20
  files    : 21
  authors  :
-    18  Makara Wang  100.0%
+    20  Makara Wang  100.0%
 ```
