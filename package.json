@@ -25,9 +25,7 @@
     "url": "https://github.com/Wiredcraft/mixable-object/issues"
   },
   "homepage": "https://github.com/Wiredcraft/mixable-object",
-  "dependencies": {
-    "sliced": "^1.0.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "benchmark": "^2.0.0",
     "coveralls": "^2.11.0",
